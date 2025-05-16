@@ -1,4 +1,5 @@
 ##JOGO DA VELHA
+vitoria = False
 tab = [str(f"{i}") for i in range(9)]
 while True:
     ##TABELA
@@ -9,7 +10,15 @@ while True:
     escolha = int(input(f"onde deseja colocar?"))
     tab[escolha] = "x"
 
+    ##CONDICIONAIS PARA VITORIA
     if ((tab[0] and tab[1] and tab[2]) == "x") or ( (tab[3] and tab[4] and tab[5]) == "x") or ( (tab[6] and tab[7] and tab[8]) == "x"):
+        vitoria = True
+    elif ((tab[0] and tab[3] and tab[6]) == "x") or ( (tab[1] and tab[4] and tab[7]) == "x") or ( (tab[2] and tab[5] and tab[8]) == "x"):
+        vitoria = True
+    elif ((tab[0] and tab[4] and tab[8]) == "x") or ( (tab[6] and tab[4] and tab[2]) == "x"):
+        vitoria = True
+
+    if vitoria == True:
         print("VOCE GANHOU")
         ##TABELA POS JOGO
         print(f"{tab[0]} {tab[1]} {tab[2]}")
@@ -20,5 +29,4 @@ while True:
         tab = [str(f"{i}") for i in range(9)]
         if continuar == "N":
             break
-
 
