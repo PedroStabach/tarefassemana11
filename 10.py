@@ -34,29 +34,25 @@ while True:
             print("A posição escolhida já foi preenchida, escolha outra.")
             continue
 
-        # Define o símbolo do jogador atual
+
         if i == 0:
             tab[escolha[i]] = "x"
         else:
             tab[escolha[i]] = "0"
 
-        # Mostra o tabuleiro
         print(f"{tab[0]} {tab[1]} {tab[2]}")
         print(f"{tab[3]} {tab[4]} {tab[5]}")
         print(f"{tab[6]} {tab[7]} {tab[8]}")
 
-        # Verifica vitória após a jogada
         vencedor = checar_vitoria(tab)
         if vencedor == "x":
             vitoria[0] = True
         elif vencedor == "0":
             vitoria[1] = True
 
-        # Sai do loop se alguém vencer
         if vitoria[0] or vitoria[1]:
             break
 
-    ## VITÓRIA
     if vitoria[0] or vitoria[1]:
         for i in range(2):
             if vitoria[i]:
@@ -64,4 +60,7 @@ while True:
                 print(f"{tab[0]} {tab[1]} {tab[2]}")
                 print(f"{tab[3]} {tab[4]} {tab[5]}")
                 print(f"{tab[6]} {tab[7]} {tab[8]}")
+        break
+    if "-" not in tab:
+        print("o jogo empatou")
         break
