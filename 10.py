@@ -34,7 +34,6 @@ while True:
             print("A posição escolhida já foi preenchida, escolha outra.")
             continue
 
-
         if i == 0:
             tab[escolha[i]] = "x"
         else:
